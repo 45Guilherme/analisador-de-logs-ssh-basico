@@ -15,6 +15,10 @@ with open("server.log", "r") as arquivo:
     linhas = arquivo.readlines()
     print(f"{linhas}\n")
 
+    for linha in linhas:
+        if "Failed password" in linha:
+            print(linha)
+
 
 
 
