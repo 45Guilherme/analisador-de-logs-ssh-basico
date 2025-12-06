@@ -25,8 +25,21 @@ with open("server.log", "r") as arquivo:
             regex = r"from ([\d\.]+) port"
             achou = re.search(regex, linha)
             print(achou.group(1))
-           
-           
+
+    ataques = {}
+
+    for linha in linhas:
+         if "Failed password" in linha:
+            regex = r"from ([\d\.]+) port"
+            achou = re.search(regex, linha)
+            print(achou.group(1))
+            ip = achou.group(1)
+            if ip in ataques:
+                ataques[ip] += 1
+            else:
+                ataques[ip] = 1
+
+
         
         
 
